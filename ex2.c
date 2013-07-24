@@ -27,8 +27,6 @@ void crialista(struct elemento **lista)
 		adiciona(lista, 12);
 		i++;
 	}
-	else
-		*lista = NULL;
 }
 
 void concatena(struct elemento *a, struct elemento *b, struct elemento **c)

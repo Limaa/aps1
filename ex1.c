@@ -17,6 +17,7 @@ void crialista(struct elemento **lista)
 
 void separa(struct elemento *source, struct elemento **listaPar, struct elemento **listaImpar)
 {
+	// inicia as listas
     *listaPar = NULL;
     *listaImpar = NULL;
 
