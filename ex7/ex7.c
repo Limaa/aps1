@@ -15,7 +15,7 @@ void imprimeLista(Lista *l)
 
 void pilhaToLista(Pilha *p, Lista *l)
 {
-	while(emptyPilha(&p) != 1)
+	while(emptyPilha(p) != 1)
 	{
 		pushBackLista(l, desempilha(p));
 	}
@@ -23,6 +23,7 @@ void pilhaToLista(Pilha *p, Lista *l)
 
 void decToBin(int n, Lista *l)
 {
+	destroyLista(l);
 	Pilha aux;
 	iniciaPilha(&aux);
 
@@ -66,22 +67,21 @@ int main(int argc, char *argv[])
 	{
 		switch(menu(bin, &l))
 		{
-			case 0:
+			case '0':
 				fim = 1;
 				break;
-			case 1:
+			case '1':
 				printf("Numero: ");
-				scanf("%d", bin);
+				scanf("%d", &bin);
 				decToBin(bin,&l);
 				break;
 			default:
 				break;
 		}
+		char aux = '\0';
+		while((aux = getchar()) != '\n' && aux != EOF) ; // alternativa para fflush()
 	}
 	destroyLista(&l);
-
-	return 0;
-}
 
 	return 0;
 }

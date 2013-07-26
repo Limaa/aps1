@@ -76,27 +76,37 @@ void pushFrontLista(struct lista *l, char c)
 
 char popBackLista(struct lista *l)
 {
-	char saida = '\0';
-	saida = l->fim->info;
-	
-	struct elementoLista *aux = l->fim;
-	l->fim = l->fim->prev;
-	l->fim->next = NULL;
-	free(aux);
-	l->n--;
-	
+	int saida = 0;
+
+	if (l->n != 0)
+	{
+		saida = l->fim->info;	
+		struct elementoLista *aux = l->fim;
+		l->fim = l->fim->prev;
+		if(l->fim != NULL)
+			l->fim->next = NULL;
+		else
+			l->inicio = NULL;
+		free(aux);
+		l->n--;
+	}	
 	return saida;
 }
 char popFrontLista(struct lista *l)
 {
-	char saida = '\0';
-	saida = l->inicio->info;
-	
-	struct elementoLista *aux = l->inicio;
-	l->inicio = l->inicio->next;
-	l->inicio->prev = NULL;
-	free(aux);
-	l->n--;
-	
+	int saida = 0;
+
+	if (l->n != 0)
+	{
+		saida = l->inicio->info;	
+		struct elementoLista *aux = l->inicio;
+		l->inicio = l->inicio->next;
+		if(l->inicio != NULL)
+			l->inicio->prev = NULL;
+		else
+			l->fim = NULL;
+		free(aux);
+		l->n--;
+	}	
 	return saida;
 }
