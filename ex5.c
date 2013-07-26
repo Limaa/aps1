@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 			}
 			break;
 		case 3: // Separar lista entre: com prioridade e sem prioridade
-			separaFilas(&fila, &norExibir lista COM prioridademal, &preferencial);
+			separaFilas(&fila, &normal, &preferencial);
 			printf("Filas separadas...\n");
 			break;
 		case 4: // Retirar pessoas da fila COM prioridade

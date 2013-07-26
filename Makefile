@@ -5,7 +5,8 @@ clean:
 	rm -f ex2
 	rm -f ex3
 	rm -f ex5
-exs: exs1 exs2 exs3 exs5
+	rm -f ex6
+exs: exs1 exs2 exs3 exs5 exs6
 
 exs1: ex1.c elemento.c
 	gcc -o ex1 ex1.c elemento.c -I. -g -Wall -std=c99
@@ -16,3 +17,5 @@ exs3:
 
 exs5:
 	gcc -o ex5 ex5.c filaDinamica.c -I. -g -Wall -std=c99
+exs6:
+	gcc -o ex6 ex6.c Fila.c Pilha.c Lista.c -I. -g -Wall -std=c99
