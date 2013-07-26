@@ -43,9 +43,9 @@ int bufferVazio()
 char prioridade = '\0';
 
 // -------MENU------------
-int menu()
+char menu()
 {
-	int saida = -1;
+	char saida = '\0';
 	printf("-------------------------------------------\n");
 	printf("   Gerenciamento de filas com prioridade   \n");
 	printf("-------------------------------------------\n");
@@ -60,7 +60,7 @@ int menu()
 	printf("7 - Exibir lista COM prioridade.\n");
 	printf("8 - Exibir lista SEM prioridade.\n");
 	printf("\t> ");
-	scanf("%d", &saida);
+	scanf("%c", &saida);
 	return saida;
 }
 
@@ -94,16 +94,16 @@ int main(int argc, char *argv[])
 	{
 		switch(menu())
 		{
-		case 0: // Sair
+		case '0': // Sair
 			fim = 1;
 			break;
-		case 1: // Inserir pessoas na fila
+		case '1': // Inserir pessoas na fila
 			getNome(buffer);
 			getPrioridade(&prioridade);
 			enfileira(&fila, buffer, prioridade);
 			esvaziaBuffer();
 			break;
-		case 2: // Retirar pessoas da fila
+		case '2': // Retirar pessoas da fila
 			desenfileira(&fila, buffer);
 			if(bufferVazio() == 1)
 				printf("Nenhuma pessoa na fila.\n");
@@ -113,11 +113,11 @@ int main(int argc, char *argv[])
 				esvaziaBuffer();
 			}
 			break;
-		case 3: // Separar lista entre: com prioridade e sem prioridade
+		case '3': // Separar lista entre: com prioridade e sem prioridade
 			separaFilas(&fila, &normal, &preferencial);
 			printf("Filas separadas...\n");
 			break;
-		case 4: // Retirar pessoas da fila COM prioridade
+		case '4': // Retirar pessoas da fila COM prioridade
 			desenfileira(&preferencial, buffer);
 			if(bufferVazio() == 1)
 				printf("Nenhuma pessoa na fila.\n");
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 				esvaziaBuffer();
 			}
 			break;
-		case 5: // Retirar pessoas da fila SEM prioridade
+		case '5': // Retirar pessoas da fila SEM prioridade
 			desenfileira(&normal, buffer);
 			if(bufferVazio() == 1)
 				printf("Nenhuma pessoa na fila.\n");
@@ -137,13 +137,13 @@ int main(int argc, char *argv[])
 				esvaziaBuffer();
 			}
 			break;
-		case 6: // Exibir lista
+		case '6': // Exibir lista
 			imprime(&fila);
 			break;
-		case 7: // Exibir lista COM prioridade
+		case '7': // Exibir lista COM prioridade
 			imprime(&preferencial);
 			break;
-		case 8: // Exibir lista SEM prioridade
+		case '8': // Exibir lista SEM prioridade
 			imprime(&normal);
 			break;
 		default:
